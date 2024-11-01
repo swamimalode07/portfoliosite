@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swami Malode</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --accent: #FFFFFF;
+            --gradient-1: linear-gradient(45deg, #FFFFFF, #CCCCCC);
+            --gradient-2: linear-gradient(45deg, #FFFFFF, #CCCCCC);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.2;
+            overflow-x: hidden;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==');
+            opacity: 0.05;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            z-index: 100;
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .nav-hide {
+            transform: translateY(-100%);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-left: 3rem;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: text-shadow 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: width 0.3s ease;
+            transform-origin: left;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-links a:hover {
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 8rem 2rem 2rem 2rem;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            margin-top: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 8vw, 8rem);
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards 0.2s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .projects {
+            padding: 2rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Add "Recent Work" text */
+        .projects::before {
+            content: 'RECENT WORK';
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            padding: 0 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .project-grid {
+            position: relative;
+        }
+
+        /* Top border line */
+        .project-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Bottom border line */
+        .project-grid::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card {
+            position: relative;
+            padding: 4rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+        }
+
+        .project-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+        }
+
+        .project-category {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .floating-button {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            color: var(--text-primary);
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(0, 0);
+            transition: opacity 0.3s ease;
+            will-change: transform;
+            left: 0;
+            top: 0;
+        }
+
+        .floating-button svg {
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+            
+            .project-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .project-category {
+                text-align: left;
+            }
+        }
+
+        .about {
+            padding: 4rem 6rem;
+            background: linear-gradient(to bottom, #000000, #000000);
+            margin-bottom: 0;
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .about-text {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .about-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .about-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .about-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        .about-link svg {
+            transition: transform 0.3s;
+        }
+
+        .contact {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: #000000;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            text-decoration: none;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            margin-bottom: 6rem;
+        }
+
+        .contact-button:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .contact-button .arrow-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .contact-button:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .project-tags span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .project-link:hover {
+            transform: translateX(5px);
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, );
+            border-top: 2px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card img {
+            height: 300px;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 2rem;
+            background: linear-gradient(
+                to top,
+                rgba(10, 10, 11, 0.95),
+                rgba(10, 10, 11, 0.7)
+            );
+        }
+
+        .social-taskbar {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .social-taskbar:hover {
+            transform: translateX(-50%) scale(1.02);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, 20px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        .social-taskbar {
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .social-taskbar {
+                bottom: 1rem;
+                padding: 0.5rem;
+            }
+
+            .social-link {
+                width: 35px;
+                height: 35px;
+            }
+
+            .social-icon {
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        .contact .section-title {
+            margin-bottom: 2rem;
+        }
+
+        .skills {
+            padding: 0;
+            background: #000000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Gradient overlays for the edges */
+        .skills::before,
+        .skills::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 150px; /* Adjust width of the glow */
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .skills::before {
+            left: 0;
+            background: linear-gradient(to right, 
+                #000000 0%,
+                rgba(0, 0, 0, 0.9) 40%,
+                transparent 100%
+            );
+        }
+
+        .skills::after {
+            right: 0;
+            background: linear-gradient(to left, 
+                #000000 0%,
+                rgba(0, 0, 0, 0.9) 40%,
+                transparent 100%
+            );
+        }
+
+        .skills-track {
+            padding: 2rem 0;
+            overflow: hidden;
+        }
+
+        .skills-wrapper {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            animation: scroll 30s linear infinite;
+        }
+
+        .skill-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Add this to your existing media queries */
+        @media (max-width: 768px) {
+            .skill-pill {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Add this to your root styles */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Adjusts scroll position to account for fixed header */
+        }
+
+        /* Custom Cursor Styles */
+        .cursor {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+
+        .cursor-dot {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);  /* This centers the dot on the cursor */
+            transition: opacity 0.3s ease;
+            mix-blend-mode: difference;  /* This ensures visibility on all backgrounds */
+        }
+
+        .cursor-outline {
+            display: none;
+        }
+
+        /* Hide default cursor */
+        * {
+            cursor: none !important;
+        }
+
+        /* Hover states for interactive elements */
+        a:hover ~ .cursor .cursor-outline,
+        button:hover ~ .cursor .cursor-outline,
+        .project-card:hover ~ .cursor .cursor-outline {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Optional: Add this for touch devices */
+        @media (max-width: 768px) {
+            .cursor {
+                display: none;
+            }
+            * {
+                cursor: auto !important;
+            }
+        }
+
+        .custom-cursor {
+            width: 0px;
+            height: 0px;
+            background-color: #ffffff;
+            border-radius: 60%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Optional: Hide on mobile */
+        @media (max-width: 768px) {
+            .custom-cursor {
+                display: none;
+            }
+        }
+
+        .certifications {
+            padding: 4rem 2rem;
+            background: #000000;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .certification-card {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 12px;
+            padding: 1px;
+            background: linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.1),
+                rgba(255, 255, 255, 0.2),
+                rgba(255, 255, 255, 0.1)
+            );
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .certification-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            color: var(--text-primary);
+        }
+
+        .certification-content {
+            flex-grow: 1;
+        }
+
+        .certification-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-issuer {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .certification-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .certification-link {
+            flex-shrink: 0;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .certification-link:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+        }
+
+        .certification-card:hover::before {
+            background: linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.2),
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.2)
+            );
+        }
+
+        @media (max-width: 768px) {
+            .certifications {
+                padding: 3rem 1.5rem;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .certification-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Base Styles and Variables */
+        :root {
+            --text-primary: rgba(255, 255, 255, 0.95);
+            --text-secondary: rgba(255, 255, 255, 0.65);
+            --background: #000000;
+            --accent: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Selection Style */
+        ::selection {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        /* Scrollbar Style */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Add these styles for the project card */
+        .project-link-wrapper {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+            height: 100%;
+        }
+
+        .project-card {
+            position: relative;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        @media (max-width: 768px) {
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .floating-button {
+                display: none;
+            }
+
+            .project-card::after {
+                content: '→';
+                position: absolute;
+                right: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 1.2rem;
+                color: var(--text-secondary);
+            }
+        }
+
+        /* Base responsive styles */
+        @media (max-width: 768px) {
+            /* Navigation */
+            .nav {
+                padding: 1rem;
+            }
+
+            .nav-inner {
+                padding: 0.5rem;
+            }
+
+            .nav-logo {
+                font-size: 1rem;
+            }
+
+            .nav-hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                margin: 0;
+                font-size: 1.5rem;
+                color: var(--text-primary);
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 6rem 1rem 2rem 1rem;
+                min-height: auto;
+            }
+
+            .hero-content {
+                margin-top: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                max-width: 100%;
+            }
+
+            /* Projects Section */
+            .projects {
+                padding: 2rem 1rem;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .project-content {
+                width: 100%;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .project-category {
+                font-size: 0.9rem;
+            }
+
+            .floating-button {
+                display: none;
+            }
+
+            /* Skills Section */
+            .skills {
+                padding: 1rem 0;
+            }
+
+            .skills-wrapper {
+                gap: 0.75rem;
+                padding: 0.5rem;
+            }
+
+            .skill-pill {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            /* About Section */
+            .about {
+                padding: 3rem 1rem;
+            }
+
+            .about-content {
+                padding: 0;
+            }
+
+            .about-text {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .about-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            /* Contact Section */
+            .contact {
+                padding: 3rem 1rem;
+            }
+
+            .contact-content {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .contact-text {
+                font-size: 0.95rem;
+            }
+
+            .contact-button {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.9rem;
+            }
+
+            /* Social Taskbar */
+            .social-taskbar {
+                bottom: 1rem;
+                padding: 0.5rem;
+                gap: 0.75rem;
+            }
+
+            .social-link {
+                width: 32px;
+                height: 32px;
+            }
+
+            .social-icon {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .project-title {
+                font-size: 1.25rem;
+            }
+
+            .about-text {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .social-link {
+                width: 28px;
+                height: 28px;
+            }
+
+            .social-icon {
+                width: 14px;
+                height: 14px;
+            }
+
+            .nav-logo {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Tablet devices */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .project-title {
+                font-size: 1.75rem;
+            }
+
+            .about-text {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hamburger menu styles */
+        .nav-hamburger {
+            display: none !important;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger-inner {
+            width: 24px;
+            height: 18px;
+            position: relative;
+        }
+
+        .hamburger-inner span {
+            display: block;
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-inner span:first-child {
+            top: 0;
+        }
+
+        .hamburger-inner span:nth-child(2) {
+            top: 8px;
+        }
+
+        .hamburger-inner span:last-child {
+            top: 16px;
+        }
+
+        /* Hamburger Animation */
+        .nav-hamburger.active .hamburger-inner span:first-child {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+
+        .nav-hamburger.active .hamburger-inner span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-hamburger.active .hamburger-inner span:last-child {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            .nav-hamburger {
+                display: block !important;
+                z-index: 1001;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                opacity: 0;
+            }
+
+            .nav-links.active {
+                right: 0;
+                opacity: 1;
+            }
+
+            .nav-links a {
+                margin: 0;
+                font-size: 1.5rem;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active a {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Social Taskbar Base Styles */
+        .social-taskbar {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Updated Mobile Styles */
+        @media (max-width: 768px) {
+            .social-taskbar {
+                bottom: 1.5rem;
+                padding: 0.8rem;
+                gap: 1.2rem;
+                transform: translateX(-50%) scale(1.1); /* Slightly larger overall */
+            }
+
+            .social-link {
+                width: 45px;  /* Increased from 35px */
+                height: 45px; /* Increased from 35px */
+            }
+
+            .social-icon {
+                width: 22px;    /* Increased from 18px */
+                height: 22px;   /* Increased from 18px */
+                stroke-width: 1.8; /* Slightly thinner for better visibility */
+            }
+        }
+
+        /* Even larger for very small screens */
+        @media (max-width: 380px) {
+            .social-taskbar {
+                padding: 0.7rem;
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 42px;
+                height: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-logo">@code by SWAMI</div>
+            <div class="nav-hamburger">
+                <div class="hamburger-inner">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Hi, I'm Swami<br>Full Stack Developer</h1>
+                    <p class="hero-subtitle">I build exceptional digital experiences with modern technologies. Specialized in Full Stack Development and UI & UX Design.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="skills-track">
+                <div class="skills-wrapper">
+                    <!-- Design Skills -->
+                    <div class="skill-pill">UI Design</div>
+                    <div class="skill-pill">UX Design</div>
+                    <div class="skill-pill">Figma</div>
+                    
+                    <!-- Development Skills -->
+                    <div class="skill-pill">HTML</div>
+                    <div class="skill-pill">CSS</div>
+                    <div class="skill-pill">JavaScript</div>
+                    <div class="skill-pill">Node.js</div>
+                    <div class="skill-pill">Express</div>
+                    <div class="skill-pill">MongoDB</div>
+                    
+                    <!-- Tools -->
+                    <div class="skill-pill">Git</div>
+                    <div class="skill-pill">GitHub</div>
+                    <div class="skill-pill">Vercel</div>
+                    
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="skill-pill">UI Design</div>
+                    <div class="skill-pill">UX Design</div>
+                    <div class="skill-pill">Figma</div>
+                    <!-- ... duplicate skills ... -->
+                </div>
+            </div>
+        </section>
+
+        <section class="projects" id="work">
+            <div class="project-grid">
+                <article class="project-card">
+                    <a href="https://simonsaysplay.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link-wrapper">
+                        <div class="project-content">
+                            <h3 class="project-title">Simon Says Game</h3>
+                            <p class="project-category">Interactive memory game</p>
+                        </div>
+                        <div class="floating-button">
+                            <span>Visit</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4.5 11.5L11.5 4.5" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M11.5 11V4.5H5" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Project Coming Soon </h3>
+                        <p class="project-category">Under Development</p>
+                    </div>
+                    <div class="floating-button">
+                        <span>Visit</span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4.5 11.5L11.5 4.5" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M11.5 11V4.5H5" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                </article>
+
+
+                <!-- Add more project cards following the same pattern -->
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">About</h2>
+                <div class="about-content">
+                    <p class="about-text">I'm a UI/UX Designer and Full Stack Developer based in India, currently pursuing my degree at Vishwakarma Institute of Technology, Pune. I blend design thinking with technical expertise to create intuitive and scalable digital solutions.</p>
+                    
+                    <p class="about-text">With a strong foundation in both design and development, I bridge the gap between aesthetics and functionality. My approach combines user-centered design principles with robust full-stack development practices, ensuring seamless experiences from concept to deployment.</p>
+
+                    <div class="about-links">
+                        <a href="https://swamimalodeportfolio.vercel.app/" target="_blank" class="about-link">
+                            <span>Portfolio</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4.5 11.5L11.5 4.5M11.5 11V4.5H5" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/swami-malode-566541251/" target="_blank" class="about-link">
+                            <span>LinkedIn</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4.5 11.5L11.5 4.5M11.5 11V4.5H5" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/swamimalode07" target="_blank" class="about-link">
+                            <span>GitHub</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4.5 11.5L11.5 4.5M11.5 11V4.5H5" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <h2 class="section-title">Let's work together</h2>
+                    <p class="contact-text">Have a project in mind? Let's create something amazing.</p>
+                    <a href="mailto:swamimalodeofficial@gmail.com" class="contact-button">
+                        Get in touch
+                        <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="social-taskbar">
+        <a href="https://x.com/SwamiMalode" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/swami-malode-566541251/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+        </a>
+        <a href="https://www.instagram.com/swami_malode/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+        </a>
+        <a href="https://github.com/swamimalode07/" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+        </a>
+    </div>
+
+    <div class="cursor">
+        <div class="cursor-dot"></div>
+        <div class="cursor-outline"></div>
+    </div>
+
+    <div class="custom-cursor"></div>
+
+    <script>
+    document.querySelectorAll('.project-card').forEach(card => {
+        const button = card.querySelector('.floating-button');
+        
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Calculate position relative to the viewport and adjust for scroll
+            const x = e.clientX - rect.left;
+            const y = (e.clientY + scrollTop - rect.top) - scrollTop;
+            
+            // Apply the transform with a slight delay for smoothness
+            requestAnimationFrame(() => {
+                button.style.transform = `translate(${x}px, ${y}px)`;
+                button.style.opacity = '1';
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            button.style.opacity = '0';
+        });
+
+        card.addEventListener('mouseenter', () => {
+            card.style.background = 'rgba(255, 255, 255, 0.03)';
+            button.style.transition = 'opacity 0.3s ease'; // Add transition only for opacity
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.background = 'transparent';
+        });
+    });
+
+    // Optional: Pause animation on hover
+    document.querySelector('.skills-track').addEventListener('mouseenter', (e) => {
+        e.currentTarget.querySelector('.skills-wrapper').style.animationPlayState = 'paused';
+    });
+
+    document.querySelector('.skills-track').addEventListener('mouseleave', (e) => {
+        e.currentTarget.querySelector('.skills-wrapper').style.animationPlayState = 'running';
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                // Optional: Add a slight delay for better UX
+                setTimeout(() => {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 100);
+            }
+        });
+    });
+
+    // Optional: Add active state to nav links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const sections = document.querySelectorAll('section[id]');
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    let lastScroll = 0;
+    const navbar = document.querySelector('.nav');
+
+    // Add new class to navbar for initial state
+    navbar.classList.add('nav-show');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        // Determine scroll direction
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            // Scrolling down & past initial 100px
+            navbar.classList.remove('nav-show');
+            navbar.classList.add('nav-hide');
+        } else {
+            // Scrolling up or at top
+            navbar.classList.remove('nav-hide');
+            navbar.classList.add('nav-show');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    const cursor = {
+        dot: document.querySelector('.cursor-dot'),
+        
+        init: function() {
+            this.attachEventListeners();
+        },
+        
+        attachEventListeners: function() {
+            window.addEventListener('mousemove', (e) => {
+                this.dot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            });
+        }
+    };
+
+    // Initialize cursor
+        document.addEventListener('DOMContentLoaded', () => {
+        cursor.init();
+    });
+
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+        cursor.dot.style.opacity = 0;
+    });
+
+    document.addEventListener('mouseenter', () => {
+        cursor.dot.style.opacity = 1;
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const cursor = document.querySelector('.custom-cursor');
+        
+        const moveCursor = (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        };
+
+        window.addEventListener('mousemove', moveCursor);
+
+        // Hide when cursor leaves window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            });
+        });
+
+    // Add this at the beginning of your script section
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.nav-hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const navLinksItems = document.querySelectorAll('.nav-links a');
+        const body = document.body;
+
+        // Toggle menu
+        hamburger?.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent click from bubbling to document
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            
+            // Toggle body scroll
+            if (navLinks.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        });
+
+        // Close menu when clicking a link
+        navLinksItems.forEach((link, index) => {
+            link.style.transitionDelay = `${index * 0.1}s`; // Stagger animation
+            
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+    });
+    </script>
+</body>
+</html>
